@@ -11,6 +11,17 @@ class Vector {
     }
 }
 
+var directions = {
+    'n': new Vector( 0, -1),
+    'ne': new Vector( 1, -1),
+    'e': new Vector( 1,  0),
+    'se': new Vector( 1,  1),
+    's': new Vector( 0,  1),
+    'sw': new Vector(-1,  1),
+    'w': new Vector(-1,  0),
+    'nw': new Vector(-1, -1)
+};
+
 class Grid {
     constructor(width, height) {
         this.space = new Array(width * height);
@@ -36,17 +47,6 @@ class Grid {
         }
     }
 }
-
-var directions = {
-    'n': new Vector( 0, -1),
-    'ne': new Vector( 1, -1),
-    'e': new Vector( 1,  0),
-    'se': new Vector( 1,  1),
-    's': new Vector( 0,  1),
-    'sw': new Vector(-1,  1),
-    'w': new Vector(-1,  0),
-    'nw': new Vector(-1, -1)
-};
 
 function randomElement(array) {
     return array[Math.floor(Math.random() * array.length)];
