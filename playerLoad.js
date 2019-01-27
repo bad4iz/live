@@ -1,1 +1,1 @@
-export default () => console.log('player');
+export default () => console.log('ss');
