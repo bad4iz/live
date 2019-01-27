@@ -42,7 +42,9 @@ class Grid {
         for (var y = 0; y < this.height; y++) {
             for (var x = 0; x < this.width; x++) {
                 var value = this.space[x + y * this.width];
-                if (value !== null) {f.call(context, value, new Vector(x, y));}
+                if (value !== null) {
+                    f.call(context, value, new Vector(x, y));
+                }
             }
         }
     }
@@ -124,7 +126,9 @@ class View {
     }
     look(dir) {
         var target = this.vector.plus(directions[dir]);
-        if (this.world.grid.isInside(target)) {return charFromElement(this.world.grid.get(target));}
+        if (this.world.grid.isInside(target)) {
+            return charFromElement(this.world.grid.get(target));
+        }
         return '#';
     }
     findAll(ch) {

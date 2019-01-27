@@ -1,0 +1,10 @@
+.script {
+    border: 1px solid rebeccapurple;
+    width: 400px;
+    height: 400px;
+}
+.script-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
