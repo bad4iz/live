@@ -1,6 +1,6 @@
+import co from './playerLoad';
 /* eslint-disable func-names */
-
-
+co();
 class Vector {
     constructor(x, y) {
         this.x = x;
@@ -12,14 +12,14 @@ class Vector {
 }
 
 var directions = {
-    'n': new Vector( 0, -1),
-    'ne': new Vector( 1, -1),
-    'e': new Vector( 1,  0),
-    'se': new Vector( 1,  1),
-    's': new Vector( 0,  1),
-    'sw': new Vector(-1,  1),
-    'w': new Vector(-1,  0),
-    'nw': new Vector(-1, -1)
+    n: new Vector(0, -1),
+    ne: new Vector(1, -1),
+    e: new Vector(1, 0),
+    se: new Vector(1, 1),
+    s: new Vector(0, 1),
+    sw: new Vector(-1, 1),
+    w: new Vector(-1, 0),
+    nw: new Vector(-1, -1)
 };
 
 class Grid {
@@ -29,8 +29,12 @@ class Grid {
         this.height = height;
     }
     isInside(vector) {
-        return vector.x >= 0 && vector.x < this.width &&
-               vector.y >= 0 && vector.y < this.height;
+        return (
+            vector.x >= 0 &&
+            vector.x < this.width &&
+            vector.y >= 0 &&
+            vector.y < this.height
+        );
     }
     get(vector) {
         return this.space[vector.x + this.width * vector.y];
@@ -55,14 +59,18 @@ function randomElement(array) {
 }
 
 function elementFromChar(legend, ch) {
-    if (ch === ' ') {return null;}
+    if (ch === ' ') {
+        return null;
+    }
     var element = new legend[ch]();
     element.originChar = ch;
     return element;
 }
 
 function charFromElement(element) {
-    if (element === null) {return ' ';}
+    if (element === null) {
+        return ' ';
+    }
     return element.originChar;
 }
 
@@ -73,8 +81,7 @@ class World {
         this.legend = legend;
         map.forEach(function(line, y) {
             for (var x = 0; x < line.length; x++) {
-                grid.set(new Vector(x, y),
-                    elementFromChar(legend, line[x]));
+                grid.set(new Vector(x, y), elementFromChar(legend, line[x]));
             }
         });
     }
@@ -134,7 +141,9 @@ class View {
     findAll(ch) {
         var found = [];
         for (var dir in directions) {
-            if (this.look(dir) === ch) {found.push(dir);}
+            if (this.look(dir) === ch) {
+                found.push(dir);
+            }
         }
         return found;
     }
@@ -156,7 +165,7 @@ class BouncingCritter {
         if (view.look(this.direction) !== ' ') {
             this.direction = view.find(' ') || 's';
         }
-        return {type: 'move', direction: this.direction};
+        return { type: 'move', direction: this.direction };
     }
 }
 class Wall {}
@@ -180,10 +189,9 @@ class WallFollower {
             this.dir = dirPlus(this.dir, 1);
             if (this.dir === start) break;
         }
-        return {type: 'move', direction: this.dir};
+        return { type: 'move', direction: this.dir };
     }
 }
-
 
 var plan = [
     '############################################################',
@@ -209,8 +217,10 @@ var plan = [
     '############################################################'
 ];
 
+var world = new World(plan, {
+    '#': Wall,
+    o: BouncingCritter,
+    '=': WallFollower
+});
 
-var world = new World(plan, {'#': Wall, 'o': BouncingCritter, '=': WallFollower});
-
-
-animateWorld(world);
+windows.animateWorld(world);
