@@ -1,1 +1,1 @@
-export default () => console.log('ss');
+export default () => alert('xxxss');

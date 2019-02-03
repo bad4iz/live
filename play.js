@@ -1,1 +1,4 @@
-export default () => console.log('plsdfasdfa0');
+import play from './one';
+
+play();
+export default () => console.log('sdfsadfasdfasdf');
