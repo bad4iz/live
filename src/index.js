@@ -1,3 +1,6 @@
 import './style.css';
+import Animated from './lib/animateworld';
 
-console.log('sadfasf');
+import world from './script.js';
+
+new Animated(world);

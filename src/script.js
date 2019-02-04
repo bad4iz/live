@@ -1,6 +1,4 @@
-import co from './playerLoad';
 /* eslint-disable func-names */
-co();
 class Vector {
     constructor(x, y) {
         this.x = x;
@@ -223,4 +221,4 @@ var world = new World(plan, {
     '=': WallFollower
 });
 
-windows.animateWorld(world);
+export default world;
