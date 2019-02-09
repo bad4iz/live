@@ -29,7 +29,7 @@ export default function() {
         mouse.x = e.pageX - this.offsetLeft;
         mouse.y = e.pageY - this.offsetTop;
 
-        if (mouse.x > rectangle.dx - 10 && mouse.x < rectangle.dx + 10) {
+        if (mouse.x > rectangle.dx - 10 && mouse.x < rectangle.dx + 15) {
             rectangle.width += -e.movementX;
             console.log(rectangle.width);
             rectangle.dx += e.movementX;
