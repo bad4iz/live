@@ -1,0 +1,14 @@
+#canvases {
+    position: relative;
+}
+#print-hendler {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#canvas-scissors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}

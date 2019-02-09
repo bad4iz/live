@@ -1,34 +1,50 @@
 import createCanvas from './createCanvas';
-let draw = false;
-let move = false;
 const mouse = { x: 0, y: 0};
-const rect = {dx: 50, dy: 50, width: 50, height: 50};
-let shiftX;
-let shiftY;
+const rect = {dx: 50, dy: 0, width: 50, height: 50};
+let mousedown = false;
 
 export default function() {
     const {canvas, context, height, image, width} = createCanvas();
-    context.drawImage(image, 0, 0, width, height);
+    rect.height = height;
     context.strokeStyle = 'orange';
     context.strokeRect(rect.dx, rect.dy, rect.width, rect.height);
 
     canvas.addEventListener('mousedown', function(e) {
-        move = true;
+        mousedown = 'true';
     });
 
     canvas.addEventListener('mousemove', function(e) {
-        if (move === true) {
+        if (mousedown === false) {
+            return;
+        }
+        mouse.x = e.pageX - this.offsetLeft;
+        mouse.y = e.pageY - this.offsetTop;
+
+        if (mouse.x > rect.dx - 10 && mouse.x < rect.dx + 10) {
+            rect.width += -e.movementX;
+            console.log(rect.width);
+            rect.dx += e.movementX;
+        } else {
             rect.dx += e.movementX;
             rect.dy += e.movementY;
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            context.strokeRect(rect.dx, rect.dy, rect.width, rect.height);
-
         }
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.strokeRect(rect.dx, rect.dy, rect.width, rect.height);
     });
 
 
     canvas.addEventListener('mouseup', function(e) {
-        move = false;
+        mousedown = false;
+    });
+    canvas.addEventListener('mousemove', function(e) {
+        mouse.x = e.pageX - this.offsetLeft;
+        // mouse.y = e.pageY - this.offsetTop;
+        // console.log(mouse.x);
+        if (mouse.x > rect.dx - 10 && mouse.x < rect.dx + 10) {
+            canvas.style.cursor = 'col-resize';
+        } else {
+            canvas.style.cursor = 'auto';
+        }
     });
 }
 
