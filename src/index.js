@@ -1,6 +1,13 @@
 import './style.css';
-import Animated from './lib/animateworld';
 
-import world from './script.js';
+import ca from './canvas';
 
-new Animated(world);
+window.onload = () => {
+    ca();
+};
+if (module.hot) {
+    module.hot.accept('./canvas.js', function() {
+        console.log('Accepting the updated printMe module!');
+        ca();
+    });
+}
