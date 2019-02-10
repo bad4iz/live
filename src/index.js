@@ -1,6 +1,9 @@
-import './style.css';
-import Animated from './lib/animateworld';
+// import './style.css';
+// import Animated from './lib/animateworld';
+// import world from './script.js';
 
-import world from './script.js';
+// new Animated(world);
 
-new Animated(world);
+console.log(353)
+document.getElementById('root').innerHTML = 'Привет, я гоssdffтов!'
+module.hot.accept()

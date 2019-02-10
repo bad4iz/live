@@ -4,13 +4,15 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: {
-        app: './src/index.js'
-    },
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-eval-source-map',
+    entry: [
+      'webpack-hot-middleware/client',
+      './src/index.js'
+    ],
     devServer: {
         contentBase: path.join(__dirname, '/dist/'),
         compress: true,
+        hotOnly: true,
         open: true,
         port: 9990,
         publicPath: '/',
@@ -22,8 +24,11 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
+                include: [
+                    path.resolve(__dirname, "src"),
+                  ],
                 use: {
-                    loader: 'babel-loader'
+                    loader: 'babel-loader',
                 }
             },
             {
@@ -33,6 +38,8 @@ module.exports = {
         ]
     },
     plugins: [
+        // new webpack.optimize.OccurenceOrderPlugin(),
+        // new webpack.NoErrorsPlugin(),
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             title: 'Hot Module Replacement',
@@ -44,6 +51,6 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         publicPath: '/',
-        path: path.resolve(__dirname, '/dist/')
+        path: path.resolve(__dirname, '/dist/'),
     }
 };
