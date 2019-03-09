@@ -8,3 +8,11 @@
     display: flex;
     justify-content: space-around;
 }
+
+#editor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 50%;
+    left: 0;
+}

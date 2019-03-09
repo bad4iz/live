@@ -35,5 +35,7 @@
     "bugs": {
         "url": "https://github.com/bad4iz/alive/issues"
     },
-    "homepage": "https://github.com/bad4iz/alive#readme"
+    "homepage": "https://github.com/bad4iz/alive#readme",
+    "dependencies": {
+    }
 }
