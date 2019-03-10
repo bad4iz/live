@@ -1,13 +1,13 @@
 import './style.css';
 import AnimatedTxt from './lib/animateworldtxt';
 // import Animated from './lib/animateworld';
-import {Vector, BouncingCritter, directions, functions, Grid, plan, View, World} from './scripttxt';
+import {Vector, BouncingCritter, directions, functions, Grid, View, World} from './scripttxt';
 
 const ace = window.ace;
 
 // import World, { Wall, BouncingCritter} from './script';
 // import world from './script';
-// import plan from './plan';
+import plan from './plan';
 
 
 var editor = ace.edit('editor');
