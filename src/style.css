@@ -10,9 +10,25 @@
 }
 
 #editor {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 50%;
-    left: 0;
+    width: 100%;
+    height: 261px;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*bottom: 50%;*/
+    /*left: 0;*/
+}
+
+#html-editor {
+    width: 100%;
+    height: 261px;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*bottom: 50%;*/
+    /*left: 0;*/
+}
+#result {
+    width: 100%;
+    height: 400px;
 }
