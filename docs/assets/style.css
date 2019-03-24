@@ -1,0 +1,34 @@
+.script {
+    border: 1px solid rebeccapurple;
+    width: 400px;
+    height: 400px;
+}
+.script-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#editor {
+    width: 100%;
+    height: 261px;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*bottom: 50%;*/
+    /*left: 0;*/
+}
+
+#html-editor {
+    width: 100%;
+    height: 261px;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*bottom: 50%;*/
+    /*left: 0;*/
+}
+#result {
+    width: 100%;
+    height: 400px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+     <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<script src="https://rawgithub.com/ajaxorg/ace-builds/master/src/ace.js" type="text/javascript"
+        charset="utf-8"></script>
+
+<div id="editor">
+    class WallFollower {
+
+        constructor() {
+            this.direction = randomElement(Object.keys(directions));
+        }
+        act(view) {
+            if (view.look(this.direction) !== ' ') {
+                this.direction = view.find(' ') || 's';
+            }
+            return { type: 'move', direction: this.direction };
+        }
+    }
+</div>
+<!--<div id="html-editor"></div>-->
+
+<button id="save">save</button>
+<!--<iframe id="result" frameborder="0"></iframe>-->
+
+
+<script type="text/javascript" src="app.bundle.js"></script></body>
+</html>
