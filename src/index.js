@@ -3,6 +3,11 @@ import AnimatedTxt from './lib/animateworldtxt';
 // import Animated from './lib/animateworld';
 import {Vector, BouncingCritter, directions, functions, Grid, View, World} from './scripttxt';
 
+
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Looks like we are in development mode!');
+}
+
 const ace = window.ace;
 
 // import World, { Wall, BouncingCritter} from './script';
@@ -30,6 +35,7 @@ function saving(event) {
         update();
     }
 }
+
 function update() {
     // const text = Animated.toString() +
     //     World.toString() +
@@ -57,12 +63,11 @@ function update() {
     res.write('<div>jopa</div>');
     res.write('<script>' + AnimatedTxt + Vector + directions + Grid + functions + World + View + BouncingCritter + '</script>');
 
-    res.write('<script>' + editor.getValue()  + '</script>');
-    res.write('<script>' +  plan + '</script>');
+    res.write('<script>' + editor.getValue() + '</script>');
+    res.write('<script>' + plan + '</script>');
     res.write('<script>var world = new World(plan, {\n    \'#\': Wall,\n    o: BouncingCritter,\n    \'=\': WallFollower\n});</script>');
 
     res.write('<script>new Animated(world)</script>');
-
 
 
     res.close();
