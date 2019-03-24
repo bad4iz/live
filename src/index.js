@@ -1,6 +1,8 @@
 import './style.css';
 import AnimatedTxt from './lib/animateworldtxt';
 // import Animated from './lib/animateworld';
+import './style.css';
+
 import {Vector, BouncingCritter, directions, functions, Grid, View, World} from './scripttxt';
 
 

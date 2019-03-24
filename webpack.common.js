@@ -29,7 +29,8 @@ module.exports = {
                     {
                         loader: 'extract-loader',
                         options: {
-                            publicPath: '../'
+                            // dynamically return a relative publicPath based on how deep in directory structure the loaded file is in /src/ directory
+                            publicPath: (context) => '../'.repeat(path.relative(path.resolve('src'), context.context).split('/').length)
                         }
                     },
                     {
